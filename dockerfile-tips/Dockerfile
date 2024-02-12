@@ -3,11 +3,11 @@ FROM alpine:latest
 # Les dépendances de votre application
 
 
-# ❌ Ne pas faire
+# ❌
 RUN apt-get update
 RUN apt-get install -y package1
 
-# ✅ Faire
+# ✅
 RUN apt-get update && \
     apt-get install -y package1
 
@@ -26,11 +26,11 @@ COPY --from=builder /app/dist ./dist
 CMD ["npm", "start"]
 
 
-# ❌ Ne pas faire
+# ❌
 RUN pip install -r requirements.txt
 COPY . .
 
-# ✅ Faire
+# ✅
 RUN pip install -r requirements.txt
 COPY app.py .
 
